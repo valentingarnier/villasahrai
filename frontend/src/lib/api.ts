@@ -89,9 +89,35 @@ export interface UserProfile {
   subscription_status: string | null;
 }
 
+// Helpers
+function toQuery(params?: Record<string, string | undefined>): string {
+  if (!params) return "";
+  const entries = Object.entries(params).filter(
+    (entry): entry is [string, string] => entry[1] !== undefined,
+  );
+  if (entries.length === 0) return "";
+  return "?" + new URLSearchParams(entries).toString();
+}
+
 // API Functions
 export const api = {
   getMe: () => apiGet<UserProfile>("/api/v1/users/me"),
   hello: () => apiGet<{ message: string }>("/api/v1/hello"),
   createCheckout: () => apiPost<{ checkout_url: string }>("/api/v1/checkout"),
+};
+
+// Voice Agent API
+import type { VoiceAgentAnalytics, VoiceAgentConfig, Call } from "@/lib/mock-data";
+
+export const voiceAgentApi = {
+  getAnalytics: () =>
+    apiGet<VoiceAgentAnalytics>("/api/v1/voice-agent/analytics"),
+  getCalls: (params?: { date?: string; outcome?: string; search?: string }) =>
+    apiGet<Call[]>(`/api/v1/voice-agent/calls${toQuery(params)}`),
+  getConfig: () =>
+    apiGet<VoiceAgentConfig>("/api/v1/voice-agent/config"),
+  updateConfig: (config: Partial<VoiceAgentConfig>) =>
+    apiPatch<VoiceAgentConfig>("/api/v1/voice-agent/config", config),
+  syncEatNow: () =>
+    apiPost<{ lastSync: string }>("/api/v1/voice-agent/eat-now/sync"),
 };

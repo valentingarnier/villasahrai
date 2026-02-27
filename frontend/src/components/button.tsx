@@ -84,6 +84,14 @@ const styles = {
       'text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-purple-500)] [--btn-border:var(--color-purple-600)]/90',
       '[--btn-icon:var(--color-purple-300)] data-active:[--btn-icon:var(--color-purple-200)] data-hover:[--btn-icon:var(--color-purple-200)]',
     ],
+    amber: [
+      'text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-amber-600)] [--btn-border:var(--color-amber-700)]/90',
+      '[--btn-icon:var(--color-amber-300)] data-active:[--btn-icon:var(--color-amber-200)] data-hover:[--btn-icon:var(--color-amber-200)]',
+    ],
+    sahrai: [
+      'text-white [--btn-hover-overlay:var(--color-white)]/10 [--btn-bg:var(--color-sahrai-900)] [--btn-border:var(--color-sahrai-950)]/90',
+      '[--btn-icon:var(--color-sahrai-300)] data-active:[--btn-icon:var(--color-sahrai-200)] data-hover:[--btn-icon:var(--color-sahrai-200)]',
+    ],
   },
 }
 

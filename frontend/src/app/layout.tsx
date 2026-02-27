@@ -9,10 +9,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "My SaaS App",
-    template: "%s | My SaaS App",
+    default: "Villa Sahrai - Reputation Management",
+    template: "%s | Villa Sahrai",
   },
-  description: "A modern SaaS application.",
+  description: "Plateforme de gestion de réputation pour Villa Sahrai.",
 };
 
 export default function RootLayout({

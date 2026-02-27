@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import clsx from "clsx";
 
 interface LogoProps {
@@ -9,33 +10,25 @@ interface LogoProps {
   variant?: "light" | "dark" | "auto";
 }
 
-export function Logo({ size = "md", showText = true, href = "/", className, variant = "auto" }: LogoProps) {
+export function Logo({ size = "md", showText = false, href = "/", className }: LogoProps) {
   const sizes = {
-    sm: { icon: "w-6 h-6", text: "text-sm", iconText: "text-xs" },
-    md: { icon: "w-8 h-8", text: "text-lg", iconText: "text-sm" },
-    lg: { icon: "w-10 h-10", text: "text-xl", iconText: "text-base" },
-  };
-
-  const textColors = {
-    light: "text-zinc-950",
-    dark: "text-white",
-    auto: "text-zinc-950 dark:text-white",
+    sm: { img: "h-14 w-auto", text: "text-sm" },
+    md: { img: "h-20 w-auto", text: "text-base" },
+    lg: { img: "h-24 w-auto", text: "text-lg" },
   };
 
   const content = (
-    <div className={clsx("flex items-center gap-2 group", className)}>
-      <div
-        className={clsx(
-          "relative rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center overflow-hidden group-hover:shadow-lg group-hover:shadow-blue-500/25 transition-shadow duration-300",
-          sizes[size].icon
-        )}
-      >
-        <span className={clsx("text-white font-bold", sizes[size].iconText)}>S</span>
-        <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-      </div>
+    <div className={clsx("flex items-center gap-2.5", className)}>
+      <Image
+        src="/logo.png"
+        alt="Villa Sahrai"
+        width={160}
+        height={160}
+        className={clsx("object-contain", sizes[size].img)}
+      />
       {showText && (
-        <span className={clsx("font-bold", textColors[variant], sizes[size].text)}>
-          My SaaS
+        <span className={clsx("font-semibold tracking-wide text-sahrai-900", sizes[size].text)}>
+          Villa Sahrai
         </span>
       )}
     </div>

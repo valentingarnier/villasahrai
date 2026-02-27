@@ -3,6 +3,19 @@
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-sans--font-feature-settings: "cv11";
+
+  /* Villa Sahrai brand color: RGB(36, 27, 22) = #241B16 */
+  --color-sahrai-50: #f5f3f1;
+  --color-sahrai-100: #e8e3df;
+  --color-sahrai-200: #d1c8c1;
+  --color-sahrai-300: #b5a89d;
+  --color-sahrai-400: #96867a;
+  --color-sahrai-500: #7a6b5f;
+  --color-sahrai-600: #5e5045;
+  --color-sahrai-700: #473b32;
+  --color-sahrai-800: #332a23;
+  --color-sahrai-900: #241B16;
+  --color-sahrai-950: #1a1310;
 }
 
 /* Smooth scrolling */
