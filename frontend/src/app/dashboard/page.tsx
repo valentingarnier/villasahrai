@@ -489,7 +489,7 @@ export default function DashboardPage() {
           <div className="mt-3">
             <Sparkline
               data={o.reviewsByMonth}
-              labels={["F&eacute;v", "Juin", "Sep", "F&eacute;v"]}
+              labels={["Fév", "Juin", "Sep", "Fév"]}
             />
           </div>
           <div className="mt-3 flex gap-8">

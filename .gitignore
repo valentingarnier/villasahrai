@@ -33,3 +33,4 @@ backend/uv.lock
 
 # Private
 PRICING_PROPOSAL.md
+.vercel

@@ -114,7 +114,7 @@ export default function DashboardLayout({
                 Mathilde Chavent
               </p>
               <p className="text-xs text-zinc-500 truncate">
-                Directrice G&eacute;n&eacute;rale
+                Marketing Manager
               </p>
             </div>
             <ChevronUpIcon className="size-4 text-zinc-400" />
