@@ -27,7 +27,7 @@ export function Logo({ size = "md", showText = false, href = "/", className }: L
         className={clsx("object-contain", sizes[size].img)}
       />
       {showText && (
-        <span className={clsx("font-semibold tracking-wide text-sahrai-900", sizes[size].text)}>
+        <span className={clsx("font-semibold tracking-wide text-sahrai-900 dark:text-sahrai-100", sizes[size].text)}>
           Villa Sahrai
         </span>
       )}

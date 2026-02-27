@@ -237,26 +237,26 @@ export default function VoiceAgentDashboardPage() {
       <div className="flex items-center gap-3">
         <Heading>AI Receptionist</Heading>
         <StatusDot status="online" label="En ligne" />
-        <span className="text-sm text-zinc-500">{mockVoiceAgentConfig.phoneNumber}</span>
+        <span className="text-sm text-zinc-500 dark:text-zinc-400">{mockVoiceAgentConfig.phoneNumber}</span>
       </div>
 
       {/* Sub-navigation */}
-      <nav className="mt-4 flex gap-1 border-b border-zinc-200 mb-8">
+      <nav className="mt-4 flex gap-1 border-b border-zinc-200 dark:border-zinc-700 mb-8">
         <Link
           href="/dashboard/voice-agent"
-          className="pb-2 px-3 text-sm font-medium border-b-2 border-sahrai-900 text-sahrai-900"
+          className="pb-2 px-3 text-sm font-medium border-b-2 border-sahrai-900 text-sahrai-900 dark:border-sahrai-100 dark:text-sahrai-100"
         >
           Tableau de bord
         </Link>
         <Link
           href="/dashboard/voice-agent/calls"
-          className="pb-2 px-3 text-sm font-medium text-zinc-500 hover:text-zinc-700"
+          className="pb-2 px-3 text-sm font-medium text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
         >
           Historique d&apos;appels
         </Link>
         <Link
           href="/dashboard/voice-agent/config"
-          className="pb-2 px-3 text-sm font-medium text-zinc-500 hover:text-zinc-700"
+          className="pb-2 px-3 text-sm font-medium text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
         >
           Configuration
         </Link>
@@ -279,18 +279,18 @@ export default function VoiceAgentDashboardPage() {
       </div>
 
       {/* Calls This Week — trend line */}
-      <div className="mt-6 rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
-        <h3 className="text-base font-semibold text-zinc-950 mb-4">Appels cette semaine</h3>
+      <div className="mt-6 rounded-xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
+        <h3 className="text-base font-semibold text-zinc-950 dark:text-white mb-4">Appels cette semaine</h3>
         <WeeklyTrendChart data={analytics.callsByDay} />
       </div>
 
       {/* Recent Calls */}
-      <div className="mt-6 rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <div className="mt-6 rounded-xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-base font-semibold text-zinc-950">Appels récents</h3>
+          <h3 className="text-base font-semibold text-zinc-950 dark:text-white">Appels récents</h3>
           <Link
             href="/dashboard/voice-agent/calls"
-            className="text-sm font-medium text-sahrai-900 hover:text-sahrai-700"
+            className="text-sm font-medium text-sahrai-900 hover:text-sahrai-700 dark:text-sahrai-100 dark:hover:text-sahrai-300"
           >
             Voir tout &rarr;
           </Link>
@@ -299,15 +299,15 @@ export default function VoiceAgentDashboardPage() {
           {recentCalls.map((call) => (
             <div
               key={call.id}
-              className="flex flex-wrap items-center gap-3 rounded-lg border border-zinc-100 px-4 py-3"
+              className="flex flex-wrap items-center gap-3 rounded-lg border border-zinc-100 px-4 py-3 dark:border-zinc-800"
             >
-              <span className="text-xs text-zinc-500 w-20">
+              <span className="text-xs text-zinc-500 dark:text-zinc-400 w-20">
                 {formatDate(call.startTime)} {formatTime(call.startTime)}
               </span>
-              <span className="text-sm font-medium text-zinc-900 min-w-[140px]">
+              <span className="text-sm font-medium text-zinc-900 dark:text-white min-w-[140px]">
                 {call.callerPhone}
               </span>
-              <span className="text-xs text-zinc-500 w-16">{formatDuration(call.duration)}</span>
+              <span className="text-xs text-zinc-500 dark:text-zinc-400 w-16">{formatDuration(call.duration)}</span>
               <Badge color={intentBadgeColor[call.intent]}>{intentLabel[call.intent]}</Badge>
               <Badge color={outcomeBadgeColor[call.outcome]}>{outcomeLabel[call.outcome]}</Badge>
               <span className="inline-flex items-center gap-1.5">

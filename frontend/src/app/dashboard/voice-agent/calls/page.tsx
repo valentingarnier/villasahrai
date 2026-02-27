@@ -89,22 +89,22 @@ export default function VoiceAgentCallsPage() {
       <Heading>Historique d&apos;appels</Heading>
 
       {/* Sub-navigation */}
-      <nav className="mt-4 flex gap-1 border-b border-zinc-200 mb-8">
+      <nav className="mt-4 flex gap-1 border-b border-zinc-200 dark:border-zinc-700 mb-8">
         <Link
           href="/dashboard/voice-agent"
-          className="pb-2 px-3 text-sm font-medium text-zinc-500 hover:text-zinc-700"
+          className="pb-2 px-3 text-sm font-medium text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
         >
           Tableau de bord
         </Link>
         <Link
           href="/dashboard/voice-agent/calls"
-          className="pb-2 px-3 text-sm font-medium border-b-2 border-sahrai-900 text-sahrai-900"
+          className="pb-2 px-3 text-sm font-medium border-b-2 border-sahrai-900 text-sahrai-900 dark:border-sahrai-100 dark:text-sahrai-100"
         >
           Historique d&apos;appels
         </Link>
         <Link
           href="/dashboard/voice-agent/config"
-          className="pb-2 px-3 text-sm font-medium text-zinc-500 hover:text-zinc-700"
+          className="pb-2 px-3 text-sm font-medium text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
         >
           Configuration
         </Link>
@@ -133,9 +133,9 @@ export default function VoiceAgentCallsPage() {
       </div>
 
       {/* Call List */}
-      <div className="rounded-xl border border-zinc-200 bg-white shadow-sm overflow-hidden">
+      <div className="rounded-xl border border-zinc-200 bg-white shadow-sm overflow-hidden dark:border-zinc-700 dark:bg-zinc-900">
         {/* Table Header */}
-        <div className="hidden lg:grid lg:grid-cols-[1fr_1.5fr_0.6fr_1fr] gap-3 px-4 py-3 bg-zinc-50 border-b border-zinc-200 text-xs font-medium text-zinc-500 uppercase tracking-wider">
+        <div className="hidden lg:grid lg:grid-cols-[1fr_1.5fr_0.6fr_1fr] gap-3 px-4 py-3 bg-zinc-50 border-b border-zinc-200 text-xs font-medium text-zinc-500 dark:bg-zinc-800 dark:border-zinc-700 dark:text-zinc-400 uppercase tracking-wider">
           <span>Date / Heure</span>
           <span>Appelant</span>
           <span>Durée</span>
@@ -143,7 +143,7 @@ export default function VoiceAgentCallsPage() {
         </div>
 
         {filteredCalls.length === 0 && (
-          <div className="px-4 py-8 text-center text-sm text-zinc-500">
+          <div className="px-4 py-8 text-center text-sm text-zinc-500 dark:text-zinc-400">
             Aucun appel ne correspond aux filtres sélectionnés.
           </div>
         )}
@@ -154,13 +154,13 @@ export default function VoiceAgentCallsPage() {
             <button
               type="button"
               onClick={() => toggleExpand(call.id)}
-              className="w-full grid grid-cols-2 lg:grid-cols-[1fr_1.5fr_0.6fr_1fr] gap-3 px-4 py-3 border-b border-zinc-100 hover:bg-zinc-50 transition-colors text-left items-center"
+              className="w-full grid grid-cols-2 lg:grid-cols-[1fr_1.5fr_0.6fr_1fr] gap-3 px-4 py-3 border-b border-zinc-100 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-800 transition-colors text-left items-center"
             >
-              <span className="text-sm text-zinc-600">{formatDateTime(call.startTime)}</span>
-              <span className="text-sm font-medium text-zinc-900">
+              <span className="text-sm text-zinc-600 dark:text-zinc-400">{formatDateTime(call.startTime)}</span>
+              <span className="text-sm font-medium text-zinc-900 dark:text-white">
                 {call.callerPhone}
               </span>
-              <span className="text-sm text-zinc-600 hidden lg:block">
+              <span className="text-sm text-zinc-600 dark:text-zinc-400 hidden lg:block">
                 {formatDuration(call.duration)}
               </span>
               <span className="hidden lg:block">
@@ -172,22 +172,22 @@ export default function VoiceAgentCallsPage() {
 
             {/* Expanded Transcript */}
             {expandedCallId === call.id && (
-              <div className="px-4 py-4 bg-zinc-50 border-b border-zinc-200">
+              <div className="px-4 py-4 bg-zinc-50 border-b border-zinc-200 dark:bg-zinc-800 dark:border-zinc-700">
                 {/* Mobile-only metadata */}
                 <div className="flex flex-wrap gap-2 mb-4 lg:hidden">
                   {call.outcome === "reservation_made" && (
                     <Badge color="green">Réservation effectuée</Badge>
                   )}
-                  <span className="text-xs text-zinc-500">{formatDuration(call.duration)}</span>
+                  <span className="text-xs text-zinc-500 dark:text-zinc-400">{formatDuration(call.duration)}</span>
                 </div>
 
                 {/* Reservation Details */}
                 {call.reservationDetails && (
-                  <div className="mb-4 rounded-lg border border-sahrai-200 bg-sahrai-50 p-3">
-                    <p className="text-sm font-medium text-sahrai-800 mb-1">
+                  <div className="mb-4 rounded-lg border border-sahrai-200 bg-sahrai-50 dark:border-sahrai-800 dark:bg-sahrai-900/30 p-3">
+                    <p className="text-sm font-medium text-sahrai-800 mb-1 dark:text-sahrai-200">
                       Réservation {call.reservationType === "restaurant" ? "restaurant" : "spa"}
                     </p>
-                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-sahrai-700">
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-sahrai-700 dark:text-sahrai-300">
                       <span>
                         <CalendarDaysIcon className="inline size-3.5 mr-1" />
                         {call.reservationDetails.date} à {call.reservationDetails.time}
@@ -204,7 +204,7 @@ export default function VoiceAgentCallsPage() {
 
                 {/* Transcript */}
                 {call.transcript.length === 0 ? (
-                  <p className="text-sm text-zinc-400 italic">Transcription non disponible</p>
+                  <p className="text-sm text-zinc-400 italic dark:text-zinc-500">Transcription non disponible</p>
                 ) : (
                   <div className="space-y-3 max-w-2xl">
                     {call.transcript.map((msg, idx) => (
@@ -215,13 +215,13 @@ export default function VoiceAgentCallsPage() {
                         <div
                           className={`max-w-[80%] rounded-xl px-4 py-2.5 ${
                             msg.speaker === "agent"
-                              ? "bg-zinc-100 text-zinc-800"
-                              : "bg-sahrai-50 text-zinc-800"
+                              ? "bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-100"
+                              : "bg-sahrai-50 text-zinc-800 dark:bg-sahrai-900/30 dark:text-zinc-100"
                           }`}
                         >
-                          <p className="text-xs font-medium text-zinc-500 mb-0.5">
+                          <p className="text-xs font-medium text-zinc-500 mb-0.5 dark:text-zinc-400">
                             {msg.speaker === "agent" ? "Agent" : "Appelant"}{" "}
-                            <span className="text-zinc-400">{formatTimestamp(msg.timestamp)}</span>
+                            <span className="text-zinc-400 dark:text-zinc-500">{formatTimestamp(msg.timestamp)}</span>
                           </p>
                           <p className="text-sm">{msg.text}</p>
                         </div>

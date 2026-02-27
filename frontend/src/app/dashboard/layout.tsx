@@ -34,6 +34,7 @@ import {
   Cog6ToothIcon,
   ArrowRightStartOnRectangleIcon,
 } from "@heroicons/react/20/solid";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function DashboardLayout({
   children,
@@ -103,6 +104,9 @@ export default function DashboardLayout({
         </SidebarSection>
       </SidebarBody>
       <SidebarFooter>
+        <div className="flex items-center px-2 mb-2">
+          <ThemeToggle />
+        </div>
         <Dropdown>
           <DropdownButton as={SidebarItem}>
             <Avatar
@@ -110,14 +114,14 @@ export default function DashboardLayout({
               initials="MC"
             />
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-medium text-zinc-900 truncate">
+              <p className="text-sm font-medium text-zinc-900 dark:text-white truncate">
                 Mathilde Chavent
               </p>
-              <p className="text-xs text-zinc-500 truncate">
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 truncate">
                 Marketing Manager
               </p>
             </div>
-            <ChevronUpIcon className="size-4 text-zinc-400" />
+            <ChevronUpIcon className="size-4 text-zinc-400 dark:text-zinc-500" />
           </DropdownButton>
           <DropdownMenu anchor="top start">
             <DropdownItem href="/dashboard/settings">
@@ -143,7 +147,7 @@ export default function DashboardLayout({
   const navbarContent = (
     <Navbar>
       <Logo size="sm" href="/dashboard" />
-      <NavbarLabel className="font-semibold text-zinc-950">
+      <NavbarLabel className="font-semibold text-zinc-950 dark:text-white">
         Villa Sahrai
       </NavbarLabel>
     </Navbar>

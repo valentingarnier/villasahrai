@@ -36,22 +36,22 @@ export default function VoiceAgentConfigPage() {
       <Heading>Configuration de l&apos;agent</Heading>
 
       {/* Sub-navigation */}
-      <nav className="mt-4 flex gap-1 border-b border-zinc-200 mb-8">
+      <nav className="mt-4 flex gap-1 border-b border-zinc-200 dark:border-zinc-700 mb-8">
         <Link
           href="/dashboard/voice-agent"
-          className="pb-2 px-3 text-sm font-medium text-zinc-500 hover:text-zinc-700"
+          className="pb-2 px-3 text-sm font-medium text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
         >
           Tableau de bord
         </Link>
         <Link
           href="/dashboard/voice-agent/calls"
-          className="pb-2 px-3 text-sm font-medium text-zinc-500 hover:text-zinc-700"
+          className="pb-2 px-3 text-sm font-medium text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
         >
           Historique d&apos;appels
         </Link>
         <Link
           href="/dashboard/voice-agent/config"
-          className="pb-2 px-3 text-sm font-medium border-b-2 border-sahrai-900 text-sahrai-900"
+          className="pb-2 px-3 text-sm font-medium border-b-2 border-sahrai-900 text-sahrai-900 dark:border-sahrai-100 dark:text-sahrai-100"
         >
           Configuration
         </Link>
@@ -59,11 +59,11 @@ export default function VoiceAgentConfigPage() {
 
       <div className="space-y-6 max-w-3xl">
         {/* Agent Identity */}
-        <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <h3 className="text-base font-semibold text-zinc-950 mb-4">Identité de l&apos;agent</h3>
+        <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
+          <h3 className="text-base font-semibold text-zinc-950 mb-4 dark:text-white">Identité de l&apos;agent</h3>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-zinc-700 mb-1">
+              <label className="block text-sm font-medium text-zinc-700 mb-1 dark:text-zinc-300">
                 Nom de l&apos;agent
               </label>
               <Input
@@ -72,7 +72,7 @@ export default function VoiceAgentConfigPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-zinc-700 mb-1">
+              <label className="block text-sm font-medium text-zinc-700 mb-1 dark:text-zinc-300">
                 Numéro de téléphone
               </label>
               <Input
@@ -82,13 +82,13 @@ export default function VoiceAgentConfigPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-zinc-700 mb-2">Langues</label>
+              <label className="block text-sm font-medium text-zinc-700 mb-2 dark:text-zinc-300">Langues</label>
               <div className="flex gap-4">
                 {[
                   { code: "fr", label: "Français" },
                   { code: "en", label: "English" },
                 ].map(({ code, label }) => (
-                  <label key={code} className="flex items-center gap-2 text-sm text-zinc-700">
+                  <label key={code} className="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-300">
                     <input
                       type="checkbox"
                       checked={config.languages.includes(code)}
@@ -98,7 +98,7 @@ export default function VoiceAgentConfigPage() {
                           : config.languages.filter((l) => l !== code);
                         setConfig({ ...config, languages });
                       }}
-                      className="size-4 rounded border-zinc-300 text-sahrai-900 focus:ring-sahrai-500"
+                      className="size-4 rounded border-zinc-300 text-sahrai-900 focus:ring-sahrai-500 dark:border-zinc-600 dark:bg-zinc-800"
                     />
                     {label}
                   </label>
@@ -106,7 +106,7 @@ export default function VoiceAgentConfigPage() {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-zinc-700 mb-1">
+              <label className="block text-sm font-medium text-zinc-700 mb-1 dark:text-zinc-300">
                 Message d&apos;accueil
               </label>
               <Textarea
@@ -116,7 +116,7 @@ export default function VoiceAgentConfigPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-zinc-700 mb-1">
+              <label className="block text-sm font-medium text-zinc-700 mb-1 dark:text-zinc-300">
                 Message de repli
               </label>
               <Textarea
@@ -129,8 +129,8 @@ export default function VoiceAgentConfigPage() {
         </div>
 
         {/* Knowledge Base */}
-        <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <h3 className="text-base font-semibold text-zinc-950 mb-4">Base de connaissances</h3>
+        <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
+          <h3 className="text-base font-semibold text-zinc-950 mb-4 dark:text-white">Base de connaissances</h3>
           <div className="space-y-3">
             {[
               {
@@ -146,11 +146,11 @@ export default function VoiceAgentConfigPage() {
             ].map(({ key, label, icon }) => (
               <div
                 key={key}
-                className="flex items-center justify-between rounded-lg border border-zinc-100 px-4 py-3"
+                className="flex items-center justify-between rounded-lg border border-zinc-100 px-4 py-3 dark:border-zinc-800"
               >
                 <div className="flex items-center gap-3">
                   {icon}
-                  <span className="text-sm font-medium text-zinc-900">{label}</span>
+                  <span className="text-sm font-medium text-zinc-900 dark:text-white">{label}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Badge color={config.knowledgeBase[key] ? "green" : "zinc"}>
@@ -168,7 +168,7 @@ export default function VoiceAgentConfigPage() {
                       })
                     }
                     className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out ${
-                      config.knowledgeBase[key] ? "bg-sahrai-900" : "bg-zinc-200"
+                      config.knowledgeBase[key] ? "bg-sahrai-900" : "bg-zinc-200 dark:bg-zinc-600"
                     }`}
                   >
                     <span
@@ -184,21 +184,21 @@ export default function VoiceAgentConfigPage() {
         </div>
 
         {/* Eat Now Integration */}
-        <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <h3 className="text-base font-semibold text-zinc-950 mb-4">Intégration Eat Now</h3>
+        <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
+          <h3 className="text-base font-semibold text-zinc-950 mb-4 dark:text-white">Intégration Eat Now</h3>
           <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <span className="text-sm text-zinc-600">Statut :</span>
+              <span className="text-sm text-zinc-600 dark:text-zinc-400">Statut :</span>
               <Badge color="green">Connecté</Badge>
             </div>
             <div>
-              <span className="text-sm text-zinc-600">API endpoint :</span>
-              <p className="mt-1 font-mono text-xs text-zinc-500 bg-zinc-50 rounded-lg px-3 py-2">
+              <span className="text-sm text-zinc-600 dark:text-zinc-400">API endpoint :</span>
+              <p className="mt-1 font-mono text-xs text-zinc-500 bg-zinc-50 rounded-lg px-3 py-2 dark:text-zinc-400 dark:bg-zinc-800">
                 {config.eatNowIntegration.apiEndpoint}
               </p>
             </div>
             <div>
-              <span className="text-sm text-zinc-500">
+              <span className="text-sm text-zinc-500 dark:text-zinc-400">
                 Dernière synchronisation :{" "}
                 {new Date(config.eatNowIntegration.lastSync).toLocaleString("fr-FR")}
               </span>

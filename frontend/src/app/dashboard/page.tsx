@@ -311,7 +311,7 @@ function Card({
   return (
     <div
       className={clsx(
-        "overflow-hidden rounded-xl border border-zinc-200 bg-white p-5 shadow-sm",
+        "overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-5 shadow-sm",
         className,
       )}
     >
@@ -330,7 +330,7 @@ function FilterSelect({
   return (
     <div className="relative">
       <select
-        className="appearance-none rounded-lg border border-zinc-200 bg-white py-1.5 pl-3 pr-8 text-xs font-medium text-zinc-700 transition-colors hover:border-zinc-300 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+        className="appearance-none rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 py-1.5 pl-3 pr-8 text-xs font-medium text-zinc-700 dark:text-zinc-300 transition-colors hover:border-zinc-300 dark:hover:border-zinc-600 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
         aria-label={label}
       >
         {children}
@@ -354,7 +354,7 @@ function FilterSelect({
 
 function InfoIcon() {
   return (
-    <span className="flex size-5 shrink-0 items-center justify-center rounded-full border border-zinc-200 text-zinc-400">
+    <span className="flex size-5 shrink-0 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-700 text-zinc-400 dark:text-zinc-500">
       <svg className="size-3" fill="currentColor" viewBox="0 0 20 20">
         <path
           fillRule="evenodd"
@@ -413,10 +413,10 @@ export default function DashboardPage() {
             <Text className="mt-0.5">{todayDisplay}</Text>
           </div>
           <div className="flex items-center gap-2">
-            <button className="flex size-8 items-center justify-center rounded-lg border border-zinc-200 text-zinc-400 transition-colors hover:bg-zinc-50 hover:text-zinc-600">
+            <button className="flex size-8 items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-700 text-zinc-400 dark:text-zinc-500 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-600 dark:hover:text-zinc-300">
               <QuestionMarkCircleIcon className="size-4" />
             </button>
-            <button className="flex items-center gap-1.5 rounded-lg border border-zinc-200 px-3 py-1.5 text-xs font-medium text-zinc-600 transition-colors hover:bg-zinc-50">
+            <button className="flex items-center gap-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 px-3 py-1.5 text-xs font-medium text-zinc-600 dark:text-zinc-400 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800">
               <ChatBubbleLeftRightIcon className="size-3.5" />
               Contact
             </button>
@@ -434,14 +434,14 @@ export default function DashboardPage() {
             <input
               type="date"
               defaultValue="2025-02-01"
-              className="rounded-lg border border-zinc-200 bg-white px-2.5 py-1.5 text-xs font-medium text-zinc-700 transition-colors hover:border-zinc-300 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+              className="rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-2.5 py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-300 transition-colors hover:border-zinc-300 dark:hover:border-zinc-600 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
               aria-label="Date de d&eacute;but"
             />
             <span className="text-xs text-zinc-400">&ndash;</span>
             <input
               type="date"
               defaultValue="2026-02-27"
-              className="rounded-lg border border-zinc-200 bg-white px-2.5 py-1.5 text-xs font-medium text-zinc-700 transition-colors hover:border-zinc-300 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+              className="rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-2.5 py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-300 transition-colors hover:border-zinc-300 dark:hover:border-zinc-600 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
               aria-label="Date de fin"
             />
           </div>
@@ -472,16 +472,16 @@ export default function DashboardPage() {
         {/* R1 C1 — Reviews (compact) */}
         <Card className="flex flex-col">
           <div className="flex items-center justify-between">
-            <p className="text-sm font-semibold text-zinc-900">Reviews</p>
+            <p className="text-sm font-semibold text-zinc-900 dark:text-white">Reviews</p>
             <InfoIcon />
           </div>
           <div className="mt-2 flex items-center gap-2">
             <StarRating rating={o.averageRating} size="sm" />
-            <span className="text-base font-semibold text-zinc-900">
+            <span className="text-base font-semibold text-zinc-900 dark:text-white">
               {o.averageRating} / 5
             </span>
           </div>
-          <div className="my-3 border-t border-zinc-100" />
+          <div className="my-3 border-t border-zinc-100 dark:border-zinc-800" />
           <div className="flex items-center gap-1 text-xs font-medium text-red-500">
             <ArrowTrendingDownIcon className="size-3.5" />
             {o.ratingTrend}% vs. p&eacute;riode pr&eacute;c.
@@ -494,20 +494,20 @@ export default function DashboardPage() {
           </div>
           <div className="mt-3 flex gap-8">
             <div>
-              <p className="text-xl font-bold text-zinc-900">
+              <p className="text-xl font-bold text-zinc-900 dark:text-white">
                 {o.totalReviews}
               </p>
-              <p className="text-xs text-zinc-500">Avis totaux</p>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400">Avis totaux</p>
             </div>
             <div>
-              <p className="text-xl font-bold text-zinc-900">
+              <p className="text-xl font-bold text-zinc-900 dark:text-white">
                 {o.responseRate}%
               </p>
-              <p className="text-xs text-zinc-500">Taux de r&eacute;ponse</p>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400">Taux de r&eacute;ponse</p>
             </div>
           </div>
           <div className="mt-auto flex flex-col">
-            <div className="mb-2 border-t border-zinc-100" />
+            <div className="mb-2 border-t border-zinc-100 dark:border-zinc-800" />
             <div className="space-y-1">
               {[...mockReviews]
                 .sort(
@@ -520,12 +520,12 @@ export default function DashboardPage() {
                   <Link
                     key={r.id}
                     href={`/dashboard/reviews/${r.id}`}
-                    className="flex items-center gap-2 rounded-lg px-2 py-1.5 transition-colors hover:bg-zinc-50"
+                    className="flex items-center gap-2 rounded-lg px-2 py-1.5 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800"
                   >
                     <span className="text-xs font-medium text-amber-500">
                       {r.normalizedRating.toFixed(1)}
                     </span>
-                    <span className="min-w-0 flex-1 truncate text-xs text-zinc-700">
+                    <span className="min-w-0 flex-1 truncate text-xs text-zinc-700 dark:text-zinc-300">
                       {r.guestName}
                     </span>
                     <span className={clsx("text-[11px] font-medium", r.status === "responded" ? "text-green-600" : "text-zinc-400")}>
@@ -546,7 +546,7 @@ export default function DashboardPage() {
         {/* R1 C2 — Sentiment Performance (wide) */}
         <Card className="flex flex-col">
           <div className="flex items-center justify-between">
-            <p className="text-sm font-semibold text-zinc-900">
+            <p className="text-sm font-semibold text-zinc-900 dark:text-white">
               Sentiment Performance
             </p>
             <InfoIcon />
@@ -556,17 +556,17 @@ export default function DashboardPage() {
               const active = sentimentTab === tab;
               const activeStyle =
                 tab === "positive"
-                  ? "bg-green-50 text-green-700"
+                  ? "bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-400"
                   : tab === "negative"
-                    ? "bg-red-50 text-red-700"
-                    : "bg-zinc-100 text-zinc-900";
+                    ? "bg-red-50 dark:bg-red-950 text-red-700 dark:text-red-400"
+                    : "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white";
               return (
                 <button
                   key={tab}
                   onClick={() => setSentimentTab(tab)}
                   className={clsx(
                     "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-                    active ? activeStyle : "text-zinc-400 hover:text-zinc-600",
+                    active ? activeStyle : "text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300",
                   )}
                 >
                   {tab === "overall"
@@ -592,11 +592,11 @@ export default function DashboardPage() {
         <Card className="flex flex-col">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="flex size-8 items-center justify-center rounded-lg bg-amber-50">
+              <div className="flex size-8 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-950">
                 <PhoneIcon className="size-4 text-amber-600" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-zinc-900">
+                <p className="text-sm font-semibold text-zinc-900 dark:text-white">
                   AI Receptionist
                 </p>
               </div>
@@ -611,19 +611,19 @@ export default function DashboardPage() {
             />
           </div>
           <div className="mt-4 grid grid-cols-2 gap-3">
-            <div className="rounded-xl bg-amber-50 p-4">
-              <p className="text-3xl font-bold text-zinc-900">
+            <div className="rounded-xl bg-amber-50 dark:bg-amber-950 p-4">
+              <p className="text-3xl font-bold text-zinc-900 dark:text-white">
                 {o.aiReceptionist.bookingsToday}
               </p>
-              <p className="mt-1 text-xs text-zinc-500">
+              <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
                 R&eacute;servations aujourd&apos;hui
               </p>
             </div>
-            <div className="rounded-xl bg-zinc-50 p-4">
-              <p className="text-3xl font-bold text-zinc-900">
+            <div className="rounded-xl bg-zinc-50 dark:bg-zinc-800 p-4">
+              <p className="text-3xl font-bold text-zinc-900 dark:text-white">
                 {o.aiReceptionist.callsToday}
               </p>
-              <p className="mt-1 text-xs text-zinc-500">
+              <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
                 Appels aujourd&apos;hui
               </p>
             </div>
@@ -639,8 +639,8 @@ export default function DashboardPage() {
         {/* R2 C1 — Trends */}
         <Card className="flex flex-col">
           <div className="flex items-center gap-2">
-            <p className="text-sm font-semibold text-zinc-900">Tendances</p>
-            <span className="text-xs text-zinc-400">
+            <p className="text-sm font-semibold text-zinc-900 dark:text-white">Tendances</p>
+            <span className="text-xs text-zinc-400 dark:text-zinc-500">
               Meilleurs &amp; pires
             </span>
             <span className="ml-auto">
@@ -652,14 +652,14 @@ export default function DashboardPage() {
               <div
                 key={t.name}
                 className={clsx(
-                  "flex cursor-pointer items-center gap-3 rounded-xl px-4 py-4 transition-all hover:ring-1 hover:ring-zinc-200",
-                  t.direction === "up" ? "bg-green-50" : "bg-violet-50",
+                  "flex cursor-pointer items-center gap-3 rounded-xl px-4 py-4 transition-all hover:ring-1 hover:ring-zinc-200 dark:hover:ring-zinc-700",
+                  t.direction === "up" ? "bg-green-50 dark:bg-green-950" : "bg-violet-50 dark:bg-violet-950",
                 )}
               >
                 <div
                   className={clsx(
                     "flex size-9 shrink-0 items-center justify-center rounded-full",
-                    t.direction === "up" ? "bg-green-100" : "bg-red-100",
+                    t.direction === "up" ? "bg-green-100 dark:bg-green-900" : "bg-red-100 dark:bg-red-900",
                   )}
                 >
                   {t.direction === "up" ? (
@@ -669,12 +669,12 @@ export default function DashboardPage() {
                   )}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs text-zinc-500">{t.name}</p>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400">{t.name}</p>
                   <div className="mt-0.5 flex items-center gap-2">
-                    <span className="text-xl font-bold text-zinc-900">
+                    <span className="text-xl font-bold text-zinc-900 dark:text-white">
                       {t.score}
                     </span>
-                    <span className="text-sm text-zinc-400">/ 100</span>
+                    <span className="text-sm text-zinc-400 dark:text-zinc-500">/ 100</span>
                     <span
                       className={clsx(
                         "text-xs font-medium",
@@ -688,7 +688,7 @@ export default function DashboardPage() {
                     </span>
                   </div>
                 </div>
-                <ChevronRightIcon className="size-5 shrink-0 text-zinc-300" />
+                <ChevronRightIcon className="size-5 shrink-0 text-zinc-300 dark:text-zinc-600" />
               </div>
             ))}
           </div>
@@ -697,12 +697,12 @@ export default function DashboardPage() {
         {/* R2 C2 — Response Rate (wide) */}
         <Card className="flex flex-col">
           <div className="flex items-center justify-between">
-            <p className="text-sm font-semibold text-zinc-900">
+            <p className="text-sm font-semibold text-zinc-900 dark:text-white">
               Taux de r&eacute;ponse
             </p>
-            <p className="text-xs text-zinc-500">
+            <p className="text-xs text-zinc-500 dark:text-zinc-400">
               Cette semaine :{" "}
-              <span className="font-bold text-zinc-900">
+              <span className="font-bold text-zinc-900 dark:text-white">
                 {o.currentWeekResponseRate}%
               </span>
             </p>
@@ -719,7 +719,7 @@ export default function DashboardPage() {
         {/* R2 C3 — Last Messages */}
         <Card className="flex flex-col">
           <div className="flex items-center justify-between">
-            <p className="text-sm font-semibold text-zinc-900">
+            <p className="text-sm font-semibold text-zinc-900 dark:text-white">
               Derniers messages
             </p>
             <Link
@@ -733,14 +733,14 @@ export default function DashboardPage() {
             {o.lastMessages.map((msg, i) => (
               <div
                 key={i}
-                className="flex items-start gap-3 rounded-lg border border-zinc-100 bg-zinc-50/50 p-3.5"
+                className="flex items-start gap-3 rounded-lg border border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/50 p-3.5"
               >
                 <div
                   className={clsx(
                     "mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full",
                     msg.channel === "whatsapp"
-                      ? "bg-green-100"
-                      : "bg-blue-100",
+                      ? "bg-green-100 dark:bg-green-900"
+                      : "bg-blue-100 dark:bg-blue-900",
                   )}
                 >
                   {msg.channel === "whatsapp" ? (
@@ -756,13 +756,13 @@ export default function DashboardPage() {
                   )}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-sm font-medium text-zinc-900">
+                  <p className="text-sm font-medium text-zinc-900 dark:text-white">
                     {msg.contactName}
                   </p>
-                  <p className="mt-1 line-clamp-2 text-xs text-zinc-500">
+                  <p className="mt-1 line-clamp-2 text-xs text-zinc-500 dark:text-zinc-400">
                     {msg.content}
                   </p>
-                  <p className="mt-1.5 text-[11px] text-zinc-400">
+                  <p className="mt-1.5 text-[11px] text-zinc-400 dark:text-zinc-500">
                     {msg.campaign} &middot; {formatTimeFrench(msg.sentAt)}
                   </p>
                 </div>

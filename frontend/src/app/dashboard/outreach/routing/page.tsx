@@ -71,8 +71,8 @@ export default function RoutingPage() {
           <div
             key={rule.id}
             className={clsx(
-              "rounded-xl border bg-white p-5 shadow-sm transition-colors",
-              rule.enabled ? "border-zinc-200" : "border-zinc-100 opacity-60",
+              "rounded-xl border bg-white dark:bg-zinc-900 p-5 shadow-sm transition-colors",
+              rule.enabled ? "border-zinc-200 dark:border-zinc-700" : "border-zinc-100 dark:border-zinc-800 opacity-60",
             )}
           >
             <div className="flex items-start justify-between">
@@ -80,7 +80,7 @@ export default function RoutingPage() {
                 <div
                   className={clsx(
                     "flex size-9 items-center justify-center rounded-lg",
-                    rule.enabled ? "bg-amber-50" : "bg-zinc-100",
+                    rule.enabled ? "bg-amber-50 dark:bg-amber-950" : "bg-zinc-100 dark:bg-zinc-800",
                   )}
                 >
                   <ArrowsRightLeftIcon
@@ -91,10 +91,10 @@ export default function RoutingPage() {
                   />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-zinc-900">{rule.name}</p>
+                  <p className="text-sm font-semibold text-zinc-900 dark:text-white">{rule.name}</p>
                   <div className="mt-1 flex items-center gap-2">
                     <Badge>Si {rule.condition}</Badge>
-                    <span className="text-xs text-zinc-400">→</span>
+                    <span className="text-xs text-zinc-400 dark:text-zinc-500">→</span>
                     <Badge color="amber">{rule.action}</Badge>
                   </div>
                 </div>
@@ -104,7 +104,7 @@ export default function RoutingPage() {
                   onClick={() => toggleRule(rule.id)}
                   className={clsx(
                     "relative inline-flex h-6 w-11 items-center rounded-full transition-colors",
-                    rule.enabled ? "bg-amber-500" : "bg-zinc-200",
+                    rule.enabled ? "bg-amber-500" : "bg-zinc-200 dark:bg-zinc-600",
                   )}
                 >
                   <span
@@ -116,7 +116,7 @@ export default function RoutingPage() {
                 </button>
                 <button
                   onClick={() => deleteRule(rule.id)}
-                  className="text-xs text-zinc-400 hover:text-red-500"
+                  className="text-xs text-zinc-400 dark:text-zinc-500 hover:text-red-500 dark:hover:text-red-400"
                 >
                   Supprimer
                 </button>
@@ -127,7 +127,7 @@ export default function RoutingPage() {
 
         {rules.length === 0 && (
           <div className="py-12 text-center">
-            <ArrowsRightLeftIcon className="mx-auto mb-3 size-10 text-zinc-300" />
+            <ArrowsRightLeftIcon className="mx-auto mb-3 size-10 text-zinc-300 dark:text-zinc-600" />
             <Text>Aucune règle de routage configurée</Text>
             <Button className="mt-3" color="amber" onClick={() => setShowAddDialog(true)}>
               <PlusIcon />
@@ -143,7 +143,7 @@ export default function RoutingPage() {
         <DialogBody>
           <div className="space-y-4">
             <div>
-              <label htmlFor="rule-name" className="mb-1.5 block text-sm font-medium text-zinc-700">
+              <label htmlFor="rule-name" className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
                 Nom de la règle
               </label>
               <Input
@@ -154,7 +154,7 @@ export default function RoutingPage() {
               />
             </div>
             <div>
-              <label htmlFor="rule-condition" className="mb-1.5 block text-sm font-medium text-zinc-700">
+              <label htmlFor="rule-condition" className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
                 Condition
               </label>
               <Input
@@ -165,7 +165,7 @@ export default function RoutingPage() {
               />
             </div>
             <div>
-              <label htmlFor="rule-action" className="mb-1.5 block text-sm font-medium text-zinc-700">
+              <label htmlFor="rule-action" className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
                 Action
               </label>
               <Input

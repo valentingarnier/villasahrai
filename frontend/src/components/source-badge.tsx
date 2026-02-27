@@ -54,7 +54,7 @@ export function SourceBadge({ source }: { source: string }) {
   const config = sourceConfig[source];
   if (!config) {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700">
+      <span className="inline-flex items-center gap-1.5 rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-1 text-xs font-medium text-zinc-700 dark:text-zinc-300">
         {source}
       </span>
     );

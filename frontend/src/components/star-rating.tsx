@@ -47,7 +47,7 @@ function StarIcon({
   return (
     <svg
       viewBox="0 0 20 20"
-      className={clsx(className, filled ? "text-amber-400" : "text-zinc-200")}
+      className={clsx(className, filled ? "text-amber-400" : "text-zinc-200 dark:text-zinc-600")}
       fill="currentColor"
       aria-hidden="true"
     >
@@ -76,7 +76,7 @@ export function StarRating({ rating, size = "sm", showValue }: StarRatingProps) 
         );
       })}
       {showValue && (
-        <span className={clsx("ml-1 font-medium text-zinc-700", textSizeClasses[size])}>
+        <span className={clsx("ml-1 font-medium text-zinc-700 dark:text-zinc-300", textSizeClasses[size])}>
           {rating.toFixed(1)}
         </span>
       )}

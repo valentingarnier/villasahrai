@@ -39,7 +39,7 @@ export default function SmartCollectorPage() {
   return (
     <div>
       <div className="flex items-center gap-3">
-        <div className="flex size-10 items-center justify-center rounded-lg bg-amber-50">
+        <div className="flex size-10 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-950">
           <PhoneIcon className="size-5 text-amber-600" />
         </div>
         <div>
@@ -49,7 +49,7 @@ export default function SmartCollectorPage() {
       </div>
 
       {/* Tabs */}
-      <div className="mt-6 flex rounded-lg border border-zinc-200 bg-zinc-50 p-1">
+      <div className="mt-6 flex rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 p-1">
         {tabs.map((tab) => {
           const active = activeTab === tab.key;
           return (
@@ -59,8 +59,8 @@ export default function SmartCollectorPage() {
               className={clsx(
                 "flex flex-1 items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-medium transition-colors",
                 active
-                  ? "bg-white text-zinc-900 shadow-sm"
-                  : "text-zinc-500 hover:text-zinc-700",
+                  ? "bg-white dark:bg-zinc-700 text-zinc-900 dark:text-white shadow-sm"
+                  : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200",
               )}
             >
               <tab.icon className={clsx("size-4", active ? "text-amber-600" : "text-zinc-400")} />
@@ -71,14 +71,14 @@ export default function SmartCollectorPage() {
       </div>
 
       {/* Channel toggle */}
-      <div className="mt-5 flex gap-2 rounded-xl border border-zinc-200 p-1.5">
+      <div className="mt-5 flex gap-2 rounded-xl border border-zinc-200 dark:border-zinc-700 p-1.5">
         <button
           onClick={() => setChannel("whatsapp")}
           className={clsx(
             "flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-medium transition-colors",
             channel === "whatsapp"
-              ? "bg-green-50 text-green-700 ring-1 ring-green-200"
-              : "text-zinc-500 hover:bg-zinc-50",
+              ? "bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-400 ring-1 ring-green-200 dark:ring-green-800"
+              : "text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800",
           )}
         >
           <svg className="size-4" viewBox="0 0 24 24" fill="currentColor">
@@ -91,8 +91,8 @@ export default function SmartCollectorPage() {
           className={clsx(
             "flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-medium transition-colors",
             channel === "email"
-              ? "bg-blue-50 text-blue-700 ring-1 ring-blue-200"
-              : "text-zinc-500 hover:bg-zinc-50",
+              ? "bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-400 ring-1 ring-blue-200 dark:ring-blue-800"
+              : "text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800",
           )}
         >
           <svg className="size-4" viewBox="0 0 20 20" fill="currentColor">
@@ -112,17 +112,17 @@ export default function SmartCollectorPage() {
               className={clsx(
                 "flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed p-12 transition-colors",
                 csvSelected
-                  ? "border-green-300 bg-green-50/50"
-                  : "border-zinc-300 hover:border-amber-400 hover:bg-amber-50/30",
+                  ? "border-green-300 dark:border-green-700 bg-green-50/50 dark:bg-green-950/50"
+                  : "border-zinc-300 dark:border-zinc-600 hover:border-amber-400 hover:bg-amber-50/30 dark:hover:bg-amber-950/30",
               )}
             >
               <ArrowUpTrayIcon className={clsx("mb-3 size-10", csvSelected ? "text-green-500" : "text-zinc-400")} />
-              <p className="text-center text-sm font-medium text-zinc-700">
+              <p className="text-center text-sm font-medium text-zinc-700 dark:text-zinc-300">
                 {csvSelected
                   ? "guests_export.csv sélectionné (24 contacts)"
                   : "Glissez votre fichier ici"}
               </p>
-              <p className="mt-1 text-center text-xs text-zinc-500">
+              <p className="mt-1 text-center text-xs text-zinc-500 dark:text-zinc-400">
                 ou cliquez pour parcourir
               </p>
               <div className="mt-4 flex gap-2">
@@ -132,10 +132,10 @@ export default function SmartCollectorPage() {
             </div>
             <div className="mt-4 flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-zinc-700">
+                <p className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
                   Format : <span className="text-amber-600">nom;telephone;langue</span>
                 </p>
-                <p className="mt-0.5 text-xs italic text-zinc-500">
+                <p className="mt-0.5 text-xs italic text-zinc-500 dark:text-zinc-400">
                   Exemple : John Smith;+1234567890;en
                 </p>
               </div>
@@ -148,9 +148,9 @@ export default function SmartCollectorPage() {
         )}
 
         {activeTab === "single" && (
-          <div className="space-y-4 rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+          <div className="space-y-4 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-6 shadow-sm">
             <div>
-              <label htmlFor="guest-name" className="mb-1.5 block text-sm font-medium text-zinc-700">
+              <label htmlFor="guest-name" className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
                 Nom du client
               </label>
               <Input
@@ -161,7 +161,7 @@ export default function SmartCollectorPage() {
               />
             </div>
             <div>
-              <label htmlFor="guest-phone" className="mb-1.5 block text-sm font-medium text-zinc-700">
+              <label htmlFor="guest-phone" className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
                 {channel === "whatsapp" ? "Téléphone" : "Email"}
               </label>
               <Input
@@ -173,14 +173,14 @@ export default function SmartCollectorPage() {
               />
             </div>
             <div>
-              <label htmlFor="guest-lang" className="mb-1.5 block text-sm font-medium text-zinc-700">
+              <label htmlFor="guest-lang" className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
                 Langue
               </label>
               <select
                 id="guest-lang"
                 value={guestLanguage}
                 onChange={(e) => setGuestLanguage(e.target.value)}
-                className="w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm text-zinc-900 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+                className="w-full rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-white focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
               >
                 <option value="fr">Français</option>
                 <option value="en">English</option>
