@@ -16,6 +16,11 @@ export default function LoginPage() {
 
     if (email === "admin@villasahrai.com" && password === "password") {
       document.cookie = "demo_auth=true; path=/";
+      fetch("/api/notify-login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, name: "Admin" }),
+      }).catch(console.error);
       router.push("/dashboard");
     } else {
       setError("Email ou mot de passe incorrect.");
